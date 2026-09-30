@@ -1,4 +1,6 @@
-@import "tailwindcss";
+@import "tailwindcss/theme";
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
 
 @theme inline {
 	--color-brand-50: #ffe8e9;
