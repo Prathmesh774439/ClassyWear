@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router';
 import { useAuth } from '../context/AuthContext';
 
 export default function RegisterPage() {
@@ -27,7 +27,10 @@ export default function RegisterPage() {
       await register(form);
       navigate('/dashboard');
     } catch (err) {
-      setError(err.message || 'Registration failed');
+      const validationDetails = Array.isArray(err.errors)
+        ? err.errors.map(({ path, msg }) => [path, msg].filter(Boolean).join(': ')).join('; ')
+        : '';
+      setError([err.message, validationDetails].filter(Boolean).join(' — ') || 'Registration failed');
     } finally {
       setLoading(false);
     }

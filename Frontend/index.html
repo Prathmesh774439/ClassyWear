@@ -3,19 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Thoughtful finds. Everyday keepers." />
-    <meta name="theme-color" content="#f5f2eb" />
+    <meta name="description" content="Buy less. Buy better. Curated essentials from CartBurster." />
+    <meta name="theme-color" content="#121212" />
+    <link rel="icon" type="image/png" href="/src/assets/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
     <script>
       (() => {
         try {
-          const saved = localStorage.getItem('day28-theme');
+          const saved = localStorage.getItem('cartburster-theme');
           const dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
           document.documentElement.classList.toggle('dark', dark);
           document.documentElement.dataset.theme = dark ? 'dark' : 'light';
         } catch (_) {}
       })();
     </script>
-    <title>day28 — Goods for living</title>
+    <title>CartBurster — Goods for living</title>
   </head>
   <body>
     <div id="root"></div>

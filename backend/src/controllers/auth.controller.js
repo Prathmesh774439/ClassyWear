@@ -180,4 +180,12 @@ const getUserProfileController = async(req,res)=>{
     }
 }
 
-export {registerUserController, loginUserController, refreshAccessTokenController, getUserProfileController}
+const logoutUserController = async(req,res)=>{
+    res.clearCookie('refreshToken')
+    return res.status(200).json({
+        success: true,
+        message: "User logged out successfully",
+    })
+}
+
+export {registerUserController, loginUserController, refreshAccessTokenController, getUserProfileController, logoutUserController}

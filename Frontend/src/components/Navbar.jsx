@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router';
 import { useTheme } from '../context/ThemeContext';
 
 function ThemeButton({ mobile = false }) {
@@ -24,9 +24,9 @@ export default function Navbar({ isAuthenticated, user, onLogout }) {
   return (
     <header className="site-header">
       <div className="site-nav-wrap">
-        <Link to="/" className="brand focus-ring" aria-label="Day28 home" onClick={closeMenu}>
-          <span className="brand-mark" aria-hidden="true">D<span>28</span></span>
-          <span className="brand-wordmark">day28<span> / GOODS FOR LIVING</span></span>
+        <Link to="/" className="brand focus-ring" aria-label="CartBurster home" onClick={closeMenu}>
+          <span className="brand-mark" aria-hidden="true">C</span>
+          <span className="brand-wordmark">CartBurster<span> / GOODS FOR LIVING</span></span>
         </Link>
         <nav aria-label="Main navigation" className="desktop-nav">
           <NavLink to="/" end className={navClass}>Discover</NavLink>

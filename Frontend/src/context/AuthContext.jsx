@@ -1,4 +1,11 @@
-import { createContext, useCallback, useContext, useMemo, useState } from 'react';
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState
+} from 'react';
 import { apiRequest } from '../api';
 
 const AuthContext = createContext(null);
@@ -6,11 +13,38 @@ const AuthContext = createContext(null);
 export function AuthProvider({ children }) {
   const [token, setToken] = useState('');
   const [user, setUser] = useState(null);
+  const [isAuthLoading, setIsAuthLoading] = useState(true);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    async function restoreSession() {
+      try {
+        const data = await apiRequest('/auth/refresh', { method: 'POST' });
+        if (isMounted) {
+          setToken(data.accessToken);
+          setUser(data.userData);
+        }
+      } catch {
+        // A missing or expired refresh cookie simply means no active session.
+      } finally {
+        if (isMounted) setIsAuthLoading(false);
+      }
+    }
+
+    restoreSession();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   const authApiRequest = useCallback(
     (path, options = {}) => apiRequest(path, options, token),
     [token]
   );
+
+  
 
   const login = async (email, password) => {
     const data = await apiRequest('/auth/login', {
@@ -34,9 +68,13 @@ export function AuthProvider({ children }) {
     return data;
   };
 
-  const logout = () => {
-    setToken('');
-    setUser(null);
+  const logout = async () => {
+    try {
+      await apiRequest('/auth/logout', { method: 'POST' });
+    } finally {
+      setToken('');
+      setUser(null);
+    }
   };
 
   const value = useMemo(
@@ -47,9 +85,10 @@ export function AuthProvider({ children }) {
       register,
       logout,
       authApiRequest,
+      isAuthLoading,
       isAuthenticated: Boolean(token)
     }),
-    [token, user, authApiRequest]
+    [token, user, authApiRequest, isAuthLoading]
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

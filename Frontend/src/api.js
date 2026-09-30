@@ -16,12 +16,25 @@ export async function apiRequest(path, options = {}, accessToken = '') {
     credentials: 'include'
   });
 
-  const contentType = response.headers.get('content-type') || '';
-  const data = contentType.includes('application/json') ? await response.json() : await response.text();
+  const responseText = await response.text();
+  let data = responseText;
+  try {
+    data = responseText ? JSON.parse(responseText) : null;
+  } catch {
+    // Keep non-JSON responses as text.
+  }
 
   if (!response.ok) {
-    const message = typeof data === 'string' ? data : data?.message || 'Request failed';
-    throw new Error(message);
+    const message = typeof data?.message === 'string' && data.message.trim()
+      ? data.message
+      : typeof data === 'string' && data.trim()
+        ? data
+        : 'Request failed';
+    const error = new Error(message);
+    if (Array.isArray(data?.errors)) {
+      error.errors = data.errors;
+    }
+    throw error;
   }
 
   return data;

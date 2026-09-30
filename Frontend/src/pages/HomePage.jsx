@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { apiRequest } from '../api';
 import ProductCard from '../components/ProductCard';
 
@@ -24,22 +24,19 @@ export default function HomePage() {
 
 	return (
 		<div className="space-y-16 py-6 sm:space-y-24 sm:py-10">
-			<section className="relative isolate overflow-hidden rounded-editorial bg-[#183d32] px-6 py-12 text-[#f7f4eb] shadow-lift sm:px-12 sm:py-16 lg:min-h-[440px] lg:px-16 lg:py-20">
-				<div className="absolute -right-20 -top-28 -z-10 h-[430px] w-[430px] rounded-full border border-white/15" />
-				<div className="absolute -right-4 -top-12 -z-10 h-[300px] w-[300px] rounded-full border border-white/15" />
-				<div className="absolute bottom-[-90px] right-[17%] -z-10 h-64 w-64 rounded-full bg-[#c2a97b]/15 blur-3xl" />
+			<section className="relative isolate overflow-hidden rounded-editorial px-6 py-12 text-white sm:px-12 sm:py-16 lg:min-h-110 lg:px-16 lg:py-20">
 				<div className="grid gap-12 lg:grid-cols-[1.1fr_.7fr] lg:items-end">
 					<div className="max-w-3xl">
-						<p className="hero-enter mb-7 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[.24em] text-[#d7bd8b]"><span className="h-1.5 w-1.5 rounded-full bg-[#e99571]" /> Curated for the everyday</p>
-						<h1 className="hero-enter-delay font-display text-[clamp(3.4rem,9vw,8rem)] font-semibold leading-[.84] tracking-[-.075em]">Objects<br />with <span className="font-normal italic text-[#d7bd8b]">intention.</span></h1>
+						<p className="hero-enter mb-7 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[.24em] text-[#E7000B]"><span className="h-1.5 w-1.5 rounded-full bg-[#E7000B]" /> New collection 2025</p>
+						<h1 className="hero-enter-delay font-display text-[clamp(3.4rem,9vw,8rem)] font-semibold leading-[.84] tracking-[-.075em]">Buy less.<br />Buy <span className="hero-title-accent font-normal italic text-[#E7000B]">better.</span></h1>
 					</div>
 					<div className="hero-enter-delay max-w-sm lg:justify-self-end" style={{ animationDelay: '280ms' }}>
 						<p className="text-base leading-7 text-[#e4e6db] sm:text-lg">Considered pieces, made to move with you. A little less noise; a lot more of what feels like you.</p>
 						<div className="mt-7 flex flex-wrap gap-3">
-							<a href="#catalog" className="inline-flex min-h-12 items-center gap-3 rounded-full bg-[#d7bd8b] px-6 text-sm font-bold text-[#1e2723] transition hover:-translate-y-0.5 hover:bg-[#e4cea4] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/40">Explore the edit <span aria-hidden="true">↓</span></a>
+							<a href="#catalog" className="inline-flex min-h-12 items-center gap-3 rounded-full bg-[#E7000B] px-6 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-brand-700 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/40">Explore the edit <span aria-hidden="true">↓</span></a>
 							<Link to="/cart" className="inline-flex min-h-12 items-center rounded-full border border-white/40 px-6 text-sm font-semibold text-white transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/40">Your bag <span aria-hidden="true" className="ml-2">↗</span></Link>
 						</div>
-						<p className="mt-8 text-[10px] font-bold uppercase tracking-[.2em] text-white/65">Day 28 · Edition No. 01</p>
+						<p className="mt-8 text-[10px] font-bold uppercase tracking-[.2em] text-white/65">CartBurster · Edition No. 01</p>
 					</div>
 				</div>
 			</section>

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { useAuth } from '../context/AuthContext';
 
 const formatDate = (date) =>
@@ -241,7 +241,7 @@ export default function CartPage() {
                 </div>
                 <div className="flex justify-between gap-4">
                   <span>Address</span>
-                  <span className="max-w-[180px] text-right font-medium text-slate-900">{orderDetails.address}</span>
+                  <span className="max-w-45 text-right font-medium text-slate-900">{orderDetails.address}</span>
                 </div>
                 <div className="flex justify-between gap-4">
                   <span>ETA</span>
