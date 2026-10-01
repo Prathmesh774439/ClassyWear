@@ -2,6 +2,13 @@ import {userModel} from "../models/user.model.js"
 import bcrypt from 'bcryptjs'
 import { generateAccessToken, generateRefreshToken, verifyRefreshToken } from "../utils/auth.utils.js"
 
+const isProduction = process.env.NODE_ENV === 'production'
+const refreshCookieOptions = {
+    httpOnly: true,
+    secure: isProduction,
+    sameSite: isProduction ? 'none' : 'lax'
+}
+
 const registerUserController = async(req,res)=>{
     try{
         const {email,name,password}= req.body
@@ -28,7 +35,7 @@ const registerUserController = async(req,res)=>{
         const accessToken = generateAccessToken(newUser._id,newUser.role)
         const refreshToken = generateRefreshToken(newUser._id,newUser.role)
 
-        res.cookie('refreshToken',refreshToken,{httpOnly:true})
+        res.cookie('refreshToken',refreshToken,refreshCookieOptions)
 
         await userModel.findByIdAndUpdate(newUser._id,{refreshToken:refreshToken})
 
@@ -69,7 +76,7 @@ const loginUserController = async(req,res)=>{
         const accessToken = generateAccessToken(user._id,user.role)
         const refreshToken = generateRefreshToken(user._id,user.role)
 
-        res.cookie('refreshToken',refreshToken,{httpOnly:true})
+        res.cookie('refreshToken',refreshToken,refreshCookieOptions)
 
         await userModel.findByIdAndUpdate(user._id,{refreshToken:refreshToken})
 
@@ -121,7 +128,7 @@ const refreshAccessTokenController = async(req,res)=>{
 
        if(user.refreshToken !== refreshToken){
         await userModel.findByIdAndUpdate(user._id,{refreshToken:null})
-        res.clearCookie('refreshToken')
+        res.clearCookie('refreshToken',refreshCookieOptions)
         return res.status(401).json({
             message: "Refresh token leak detected, please login again",
         })
@@ -130,7 +137,7 @@ const refreshAccessTokenController = async(req,res)=>{
        const accessToken = generateAccessToken(user._id,user.role)
        const newRefreshToken = generateRefreshToken(user._id,user.role)
   
-       res.cookie('refreshToken',newRefreshToken,{httpOnly:true})
+    res.cookie('refreshToken',newRefreshToken,refreshCookieOptions)
 
        await userModel.findByIdAndUpdate(user._id,{refreshToken:newRefreshToken})
 
@@ -181,7 +188,7 @@ const getUserProfileController = async(req,res)=>{
 }
 
 const logoutUserController = async(req,res)=>{
-    res.clearCookie('refreshToken')
+    res.clearCookie('refreshToken',refreshCookieOptions)
     return res.status(200).json({
         success: true,
         message: "User logged out successfully",
