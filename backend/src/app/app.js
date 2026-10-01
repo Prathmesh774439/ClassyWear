@@ -14,10 +14,23 @@ const allowedOrigins = [
     .map((origin) => origin.trim())
     .filter(Boolean)
 ];
+const isNetlifyDeployPreview = (origin) => {
+  try {
+    const { protocol, hostname } = new URL(origin);
+    return protocol === "https:" && /^[a-z0-9-]+--cartburster\.netlify\.app$/i.test(hostname);
+  } catch {
+    return false;
+  }
+};
 
 app.use(
   cors({
-    origin: allowedOrigins,
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin) || isNetlifyDeployPreview(origin)) {
+        return callback(null, true);
+      }
+      return callback(new Error(`Origin ${origin} is not allowed by CORS`));
+    },
     credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"]
