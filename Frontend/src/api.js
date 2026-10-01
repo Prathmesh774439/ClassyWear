@@ -1,5 +1,9 @@
-const API_BASE_URL =
+const configuredApiUrl =
   import.meta.env.VITE_API_URL || "https://cartburster.onrender.com";
+const normalizedApiUrl = configuredApiUrl.trim().replace(/\/+$/, "");
+const API_BASE_URL = normalizedApiUrl.endsWith("/api")
+  ? normalizedApiUrl
+  : `${normalizedApiUrl}/api`;
 
 export async function apiRequest(path, options = {}, accessToken = "") {
   const headers = {
