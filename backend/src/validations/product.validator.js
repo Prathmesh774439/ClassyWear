@@ -21,7 +21,7 @@ export const createProductValidator = [
     body("price.currency")
         .exists().withMessage("Currency is required").bail()
         .isString().withMessage("Currency must be a string value")
-        .isIn([ "INR", "USD" ]).withMessage("Currency either be INR or USD"),
+        .isIn([ "INR" ]).withMessage("Currency must be INR"),
 
     body('sizes')
         .exists().withMessage("Sizes is required").bail()

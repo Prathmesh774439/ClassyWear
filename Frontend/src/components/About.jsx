@@ -4,16 +4,15 @@ const About = () => {
       {/* Hero */}
       <section className="pt-24 pb-16">
         <p className="border border-(--border) rounded-full px-4 py-1 w-fit text-(--primary) font-semibold tracking-widest text-sm mb-4">
-          Our Story
+          About CartBurster
         </p>
         <h1 className="text-5xl md:text-7xl font-bold font-display leading-[1.1] mb-6">
-          We make things <br /> worth keeping.
+          Thoughtful essentials <br /> for everyday life.
         </h1>
         <p className="text-(--text-secondary) text-lg max-w-2xl leading-relaxed">
-          CartBurster was born from a frustration with disposable culture — the
-          idea that everything is temporary, replaceable, and designed for the
-          landfill. We believe the best purchase is the one you never have to
-          make again.
+          CartBurster curates products that balance utility, quality, and lasting
+          value. We focus on pieces that fit naturally into daily routines and
+          remain useful over time.
         </p>
       </section>
 

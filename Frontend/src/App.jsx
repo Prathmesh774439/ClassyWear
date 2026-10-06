@@ -8,7 +8,6 @@ import LoginPage from './pages/LoginPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import RegisterPage from './pages/RegisterPage';
 import Footer from './components/Footer';
-import About from './components/About';
 import HeroBackground from './components/HeroBackground';
 
 const navLinkClass = ({ isActive }) =>
@@ -53,7 +52,6 @@ function AppLayout() {
 
           <nav className="hidden items-center gap-1 p-1 md:flex" aria-label="Main navigation">
             <NavLink to="/" className={(state) => `${navLinkClass(state)} app-nav-link`}>Discover</NavLink>
-            <NavLink to="/about" className={(state) => `${navLinkClass(state)} app-nav-link`}>Our story</NavLink>
             <NavLink to="/cart" className={(state) => `${navLinkClass(state)} app-nav-link`}>The bag</NavLink>
             <NavLink to="/dashboard" className={(state) => `${navLinkClass(state)} app-nav-link`}>Account</NavLink>
           </nav>
@@ -85,7 +83,6 @@ function AppLayout() {
           aria-label="Main mobile"
         >
           <NavLink to="/" className={(state) => `${navLinkClass(state)} app-nav-link`}>Discover</NavLink>
-          <NavLink to="/about" className={(state) => `${navLinkClass(state)} app-nav-link`}>Our story</NavLink>
           <NavLink to="/cart" className={(state) => `${navLinkClass(state)} app-nav-link`}>The bag</NavLink>
           <NavLink to="/dashboard" className={(state) => `${navLinkClass(state)} app-nav-link`}>Account</NavLink>
         </nav>
@@ -94,7 +91,6 @@ function AppLayout() {
       <main className="page-enter mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<About />} />
           <Route path="/product/:id" element={<ProductDetailPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/login" element={<LoginPage />} />
