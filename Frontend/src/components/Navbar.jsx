@@ -24,9 +24,9 @@ export default function Navbar({ isAuthenticated, user, onLogout }) {
   return (
     <header className="site-header">
       <div className="site-nav-wrap">
-        <Link to="/" className="brand focus-ring" aria-label="CartBurster home" onClick={closeMenu}>
+        <Link to="/" className="brand focus-ring" aria-label="ClassyWear home" onClick={closeMenu}>
           <span className="brand-mark" aria-hidden="true">C</span>
-          <span className="brand-wordmark">CartBurster<span> / GOODS FOR LIVING</span></span>
+          <span className="brand-wordmark">ClassyWear<span> / GOODS FOR LIVING</span></span>
         </Link>
         <nav aria-label="Main navigation" className="desktop-nav">
           <NavLink to="/" end className={navClass}>Discover</NavLink>

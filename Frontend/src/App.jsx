@@ -45,7 +45,7 @@ function AppLayout() {
           >
             <span className="app-brand-mark" aria-hidden="true">C</span>
             <span className="app-brand-copy">
-              <span className="app-brand-title">CartBurster</span>
+              <span className="app-brand-title">ClassyWear</span>
               <span className="app-brand-tagline">THE EVERYDAY, EDITED</span>
             </span>
           </Link>

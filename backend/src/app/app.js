@@ -7,7 +7,7 @@ import cartRouter from "../routes/cart.route.js";
 
 const app = express();
 const allowedOrigins = [
-  "https://cartburster.netlify.app",
+  "https://classywear.netlify.app",
   "http://localhost:5173",
   ...(process.env.CLIENT_ORIGIN || "")
     .split(",")
@@ -17,7 +17,7 @@ const allowedOrigins = [
 const isNetlifyDeployPreview = (origin) => {
   try {
     const { protocol, hostname } = new URL(origin);
-    return protocol === "https:" && /^[a-z0-9-]+--cartburster\.netlify\.app$/i.test(hostname);
+    return protocol === "https:" && /^[a-z0-9-]+--classywear\.netlify\.app$/i.test(hostname);
   } catch {
     return false;
   }

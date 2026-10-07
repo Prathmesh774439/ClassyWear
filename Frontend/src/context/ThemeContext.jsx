@@ -3,7 +3,7 @@ import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 const ThemeContext = createContext(null);
 
 function getInitialTheme() {
-  const savedTheme = localStorage.getItem('cartburster-theme');
+  const savedTheme = localStorage.getItem('classywear-theme') || localStorage.getItem('cartburster-theme');
   if (savedTheme === 'light' || savedTheme === 'dark') return savedTheme;
   if (document.documentElement.classList.contains('dark')) return 'dark';
   return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
@@ -16,7 +16,7 @@ export function ThemeProvider({ children }) {
     const root = document.documentElement;
     root.classList.toggle('dark', theme === 'dark');
     root.dataset.theme = theme;
-    localStorage.setItem('cartburster-theme', theme);
+    localStorage.setItem('classywear-theme', theme);
   }, [theme]);
 
   const value = useMemo(() => ({

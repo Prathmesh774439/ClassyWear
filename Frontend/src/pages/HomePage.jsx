@@ -36,7 +36,7 @@ export default function HomePage() {
 							<a href="#catalog" className="inline-flex min-h-12 items-center gap-3 rounded-full bg-[#E7000B] px-6 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-brand-700 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/40">Explore the edit <span aria-hidden="true">↓</span></a>
 							<Link to="/cart" className="inline-flex min-h-12 items-center rounded-full border border-white/40 px-6 text-sm font-semibold text-white transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/40">Your bag <span aria-hidden="true" className="ml-2">↗</span></Link>
 						</div>
-						<p className="mt-8 text-[10px] font-bold uppercase tracking-[.2em] text-white/65">CartBurster · Edition No. 01</p>
+						<p className="mt-8 text-[10px] font-bold uppercase tracking-[.2em] text-white/65">ClassyWear · Edition No. 01</p>
 					</div>
 				</div>
 			</section>

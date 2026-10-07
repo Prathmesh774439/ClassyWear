@@ -1,4 +1,4 @@
-# CartBurster - Prathmesh Kolam Mini Project - Sem 5 Project - BSc CS
+# ClassyWear - Prathmesh Kolam Mini Project - Sem 5 Project - BSc CS
 
 A full-stack product shopping application built as a Semester 5 BSc Computer Science mini project.
 
@@ -86,7 +86,7 @@ Install the following before running the project:
 
 ## Deployment Configuration
 
-- **Render backend:** use `npm start` as the start command and set `MONGO_URI`, `ACCESS_TOKEN_SECRET`, `REFRESH_TOKEN_SECRET`, and the ImageKit variables in the service environment. Set `NODE_ENV=production` so refresh-token cookies work across the deployed frontend and backend. Set `CLIENT_ORIGIN` to the exact deployed frontend origin if it is not `https://cartburster.netlify.app` (no trailing slash; multiple origins can be comma-separated).
+- **Render backend:** use `npm start` as the start command and set `MONGO_URI`, `ACCESS_TOKEN_SECRET`, `REFRESH_TOKEN_SECRET`, and the ImageKit variables in the service environment. Set `NODE_ENV=production` so refresh-token cookies work across the deployed frontend and backend. Set `CLIENT_ORIGIN` to `https://classywear.netlify.app` (no trailing slash; multiple origins can be comma-separated).
 - **Vite frontend:** set `VITE_API_URL=https://cartburster.onrender.com/api` in the frontend hosting environment, then trigger a fresh build/deploy. The `/api` suffix is required; Vite environment variables are embedded during the build.
 - **Local development:** leave `VITE_API_URL` unset to use the deployed API, or set it to `http://localhost:3000/api` to use a local backend. Local refresh cookies remain configured for HTTP development.
 

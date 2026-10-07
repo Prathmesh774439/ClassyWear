@@ -991,8 +991,8 @@ const seed = async () => {
       const passwordHash = await bcrypt.hash("Seller@123", 10);
 
       seller = await userModel.create({
-        name: "CartBurster Seller",
-        email: "seller@cartburster.com",
+        name: "ClassyWear Seller",
+        email: "seller@classywear.com",
         passwordHash,
         role: "seller"
       });

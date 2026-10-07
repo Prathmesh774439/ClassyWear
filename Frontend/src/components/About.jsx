@@ -4,13 +4,13 @@ const About = () => {
       {/* Hero */}
       <section className="pt-24 pb-16">
         <p className="border border-(--border) rounded-full px-4 py-1 w-fit text-(--primary) font-semibold tracking-widest text-sm mb-4">
-          About CartBurster
+          About ClassyWear
         </p>
         <h1 className="text-5xl md:text-7xl font-bold font-display leading-[1.1] mb-6">
           Thoughtful essentials <br /> for everyday life.
         </h1>
         <p className="text-(--text-secondary) text-lg max-w-2xl leading-relaxed">
-          CartBurster curates products that balance utility, quality, and lasting
+          ClassyWear curates products that balance utility, quality, and lasting
           value. We focus on pieces that fit naturally into daily routines and
           remain useful over time.
         </p>
@@ -32,7 +32,7 @@ const About = () => {
               months. We're drowning in stuff we never truly wanted.
             </p>
             <p className="text-(--text-secondary) leading-relaxed">
-              CartBurster exists to disrupt that cycle. We don't sell impulse
+              ClassyWear exists to disrupt that cycle. We don't sell impulse
               buys — we design essentials. Pieces that earn their space in
               your life through superior craft, timeless aesthetics, and
               honest value.

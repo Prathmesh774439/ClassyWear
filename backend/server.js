@@ -4,7 +4,7 @@ import { connectToDb } from "./src/config/db.config.js";
 
 app.get("/", (req, res) => {
   res.status(200).json({
-    message: "CartBurster backend is live 🚀"
+    message: "ClassyWear backend is live 🚀"
   });
 });
 

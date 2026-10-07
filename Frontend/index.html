@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Buy less. Buy better. Curated essentials from CartBurster." />
+    <meta name="description" content="Buy less. Buy better. Curated essentials from ClassyWear." />
     <meta name="theme-color" content="#121212" />
     <link rel="icon" type="image/png" href="/src/assets/logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,14 +12,14 @@
     <script>
       (() => {
         try {
-          const saved = localStorage.getItem('cartburster-theme');
+          const saved = localStorage.getItem('classywear-theme') || localStorage.getItem('cartburster-theme');
           const dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
           document.documentElement.classList.toggle('dark', dark);
           document.documentElement.dataset.theme = dark ? 'dark' : 'light';
         } catch (_) {}
       })();
     </script>
-    <title>CartBurster — Goods for living</title>
+    <title>ClassyWear — Goods for living</title>
   </head>
   <body>
     <div id="root"></div>
